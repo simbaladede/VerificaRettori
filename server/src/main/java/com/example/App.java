@@ -14,13 +14,14 @@ public class App {
         try {
             // creao un socket
             ServerSocket serverSocket = new ServerSocket(3000);
-            Biglietto b = new Biglietto(6);
+            Parole p = new Parole();
+            p.riempi();
             // accetto il client che si collega
             while (true) {
                 // apro il socket di ascolto
                 Socket client = serverSocket.accept();
-                // passo tutto alla classe ThreadGioco
-                ThreadGioco th = new ThreadGioco(client, b, listaClient);
+                // passo tutto alla classe ThreadImpiccato
+                ThreadImpiccato th = new ThreadImpiccato(client, p, listaClient);
                 th.start();
             }
         } catch (Exception e) {

@@ -3,19 +3,19 @@ package com.example;
 import java.io.BufferedReader;
 
 public class Ascolto extends Thread {
-    BufferedReader inDalServer;
-    public Ascolto(BufferedReader in){
-        this.inDalServer = in;
+    BufferedReader inputServer;
+    public Ascolto(BufferedReader input){
+        this.inputServer = input;
     }
     public void run(){
-        String rigaRitornata = "";
-        BufferedReader inDalServer = this.inDalServer;
+        String stringaRisposta = "";
+        BufferedReader inputServer = this.inputServer;
         try {
             do{
-                rigaRitornata = inDalServer.readLine();
-                System.out.println("\t il server ha risposto: " + rigaRitornata);
-                rigaRitornata = rigaRitornata.toUpperCase();
-            }while(!rigaRitornata.equals("Q"));
+                stringaRisposta = inputServer.readLine();
+                System.out.println("\t il server ha risposto: " + stringaRisposta);
+                stringaRisposta = stringaRisposta.toUpperCase();
+            }while(!stringaRisposta.equals("ESCI"));
         } catch (Exception e) {
             System.out.println("errore");
         }
